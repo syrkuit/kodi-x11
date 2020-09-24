@@ -12,7 +12,7 @@ ARG KODI_UID=1000
 ARG KODI_GID=1000
 
 RUN addgroup --gid $KODI_GID kodi
-RUN useradd --uid $KODI_UID --gid $KODI_GID --groups audio --home-dir /kodi --create-home kodi
+RUN useradd --uid $KODI_UID --gid $KODI_GID --groups audio,video --home-dir /kodi --create-home kodi
 
 COPY settings.xsl /root
 RUN mv /usr/share/kodi/system/settings/settings.xml /usr/share/kodi/system/settings/settings.bak
@@ -23,4 +23,4 @@ EXPOSE 8080 9090 9777/udp
 USER kodi
 WORKDIR /kodi
 ENTRYPOINT [ "/bin/bash" ]
-CMD ["-c", "xinit kodi-standalone"]
+CMD ["-c", "xinit /usr/bin/kodi-standalone"]
