@@ -15,5 +15,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/settings/section/category/group/setting[@id='services.webserver']/default">
     <default>true</default>
 </xsl:template>
+<xsl:template match="/settings/section/category/group/setting[@id='services.webserverauthentication']/default">
+    <default>false</default>
+</xsl:template>
 
 </xsl:stylesheet>
